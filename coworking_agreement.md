@@ -25,5 +25,5 @@ Atefeh would like to work on patience. Dominique would like to work on talking a
 *Other co-working agreements that were not captured in the above sections.*
 
 ## Signatures
-Dominique Daba _______________
+Dominique Daba & Atefeh Mirzaei
 Date: 10/19/2022
