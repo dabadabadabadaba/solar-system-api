@@ -6,12 +6,12 @@ class Planet (db.Model):
     description = db.Column(db.String)
     num_of_moons= db.Column(db.Integer)
 
-def to_dict(self):
-    return {
-        "id":self.id,
-        "name":self.name,
-        "description":self.description,
-        "num_of_moons":self.num_of_moons
-        }
+    def to_dict(self):
+        return {
+            "id":self.id,
+            "name":self.name,
+            "description":self.description,
+            "num_of_moons":self.num_of_moons
+            }
 
 

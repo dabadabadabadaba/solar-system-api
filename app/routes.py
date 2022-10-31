@@ -45,3 +45,31 @@ def get_all_planets():
         result.append(planet.to_dict())
 
     return jsonify(result), 200
+
+@planets_bp.route("/<planet_id>",methods=["PUT"])
+def update_one_planet(planet_id):
+    update_planet = get_planet_from_id(planet_id)
+
+    request_body = request.get_json() #Changing from Json to python code
+
+    try:
+        update_planet.name = request_body['name']
+        update_planet.description = request_body['description']
+        update_planet.num_of_moons = request_body['num_of_moons']
+    except KeyError:
+        # refactor this part to give more spicific information 
+        return jsonify({"msg": "Missing required data"}), 400
+
+    db.session.commit()
+
+    return jsonify({"msg": f"Succesfully updated planet with id # {update_planet.id}"}),200
+
+@planets_bp.route("/<planet_id>",methods=["DELETE"])
+def delete_one_planet(planet_id):
+
+    planet_to_delete = get_planet_from_id(planet_id)
+
+    db.session.delete(planet_to_delete)
+    db.session.commit()
+
+    return jsonify({"msg": f"Succesfully deleted planet with id # {planet_to_delete.id}"}), 200
