@@ -2,7 +2,7 @@ def test_get_all_planets_with_empty_db_returns_empty_list(client): #taking in ou
     response = client.get("/planets") #will run a GET request
     response_body = response.get_json()
 
-    assert response.status_code == 200 # attribute that let's us get the status from the response
+    assert response.status_code == 200 # attribute that lets us get the status from the response
     assert response_body == []
 
 def test_get_one_planet_with_empty_db_returns_404(client): # with every new test we write with client, an entirely new database is created and then removed
